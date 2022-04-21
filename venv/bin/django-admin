@@ -1,4 +1,4 @@
-#!/home/vladimir/projects/logoped/logoped__backend__django/venv/bin/python3
+#!/Users/vladimirsitcihin/project/logoped/logoped__backend__django/venv/bin/python3
 # -*- coding: utf-8 -*-
 import re
 import sys

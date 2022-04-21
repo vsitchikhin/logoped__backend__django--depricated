@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'soundfix__backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'logoped_base',
+        'USER': 'logoped_user',
+        'PASSWORD': 'logoped9370928419',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
