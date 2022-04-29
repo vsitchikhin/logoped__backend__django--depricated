@@ -25,7 +25,10 @@ SECRET_KEY = 'django-insecure-pkgs+n3!aga_1^s0x*(kcx^k_o17)0b-b2qr6tbwh9&=(8c97a
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+# todo: Настроить корсы на определенный хост перед деплоем на сервер!
+# https://dzone.com/articles/how-to-fix-django-cors-error#:~:text=One%20of%20the%20common%20errors,with%20a%20bunch%20of%20securities.
+ALLOWED_HOSTS = ['*']
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 # Application definition
@@ -37,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -47,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'soundfix__backend.urls'
@@ -75,8 +80,12 @@ WSGI_APPLICATION = 'soundfix__backend.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'logoped_base',
+        'USER': 'logoped_user',
+        'PASSWORD': 'logoped9370928419',
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
 
