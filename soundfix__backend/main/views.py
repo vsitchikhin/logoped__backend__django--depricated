@@ -11,8 +11,8 @@ def index(request):
 
 @csrf_exempt
 def lessons(request, lessonid):
-    if request.POST:
-        print(request.POST)
+    # if request.POST:
+    #     print(request.POST)
     return HttpResponse(f'<h1>Страница уроков №{lessonid}</h1>')
 
 
