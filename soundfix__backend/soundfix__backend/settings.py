@@ -29,31 +29,6 @@ DEBUG = True
 # https://dzone.com/articles/how-to-fix-django-cors-error#:~:text=One%20of%20the%20common%20errors,with%20a%20bunch%20of%20securities.
 ALLOWED_HOSTS = ['*']
 
-CORS_ORIGIN_ALLOW_ALL = True
-
-CORS_ALLOW_HEADERS = [
-    "accept",
-    "accept-encoding",
-    "authorization",
-    "content-type",
-    "dnt",
-    "origin",
-    "user-agent",
-    "x-csrftoken",
-    "x-requested-with",
-    "application/json",
-]
-
-CORS_ALLOWED_ORIGINS = [
-    "http://127.0.0.1",
-    "https://127.0.0.1",
-]
-
-CSRF_TRUSTED_ORIGINS = [
-    "http://127.0.0.1",
-    "https://127.0.0.1",
-]
-
 
 # Application definition
 
@@ -72,13 +47,13 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'corsheaders.middleware.CorsPostCsrfMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
-    "corsheaders.middleware.CorsPostCsrfMiddleware",
 ]
 
 ROOT_URLCONF = 'soundfix__backend.urls'
@@ -163,3 +138,39 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+
+# CORS
+CORS_ORIGIN_ALLOW_ALL = True
+
+CORS_ALLOW_HEADERS = [
+    "accept",
+    "accept-encoding",
+    "authorization",
+    "content-type",
+    "dnt",
+    "origin",
+    "user-agent",
+    "x-csrftoken",
+    "x-requested-with",
+    "application/json",
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1",
+    "https://127.0.0.1",
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://127.0.0.1",
+    "https://127.0.0.1",
+]
+
+CORS_ALLOW_METHODS = [
+    "DELETE",
+    "GET",
+    "OPTIONS",
+    "PATCH",
+    "POST",
+    "PUT",
+]

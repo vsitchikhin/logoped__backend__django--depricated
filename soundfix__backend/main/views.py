@@ -16,5 +16,13 @@ def lessons(request, lessonid):
     return HttpResponse(f'<h1>Страница уроков №{lessonid}</h1>')
 
 
+@csrf_exempt
+def singup(request):
+    if request.POST:
+        return HttpResponse('<h1>Страница регистрации POST</h1>')
+    else:
+        return HttpResponse('<h1>Страница регистрации</h1>')
+
+
 def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Страница не найдена</h1>')
